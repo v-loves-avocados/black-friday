@@ -3,7 +3,7 @@
 
 Submit jobs
 
-'''
+~~~
 job=reco_exp_"`date+%Y%m%d%H%M%S`"
 
 gcloud ml-engine jobs submit training $job \
@@ -14,5 +14,5 @@ gcloud ml-engine jobs submit training $job \
 --job-dir='gs://reco_exp_4/job' \
 -- \
 --hypertune
-'''
+~~~
 
