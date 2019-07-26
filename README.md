@@ -50,14 +50,25 @@ gcloud ml-engine jobs submit training $job \
 --module-name=trainer.task \
 --package-path=trainer \
 --config=config_tune.yaml \
---job-dir='gs://reco_exp_4/job' \
--- \
---hypertune
+--job-dir='gs://reco_exp_6/job' \
 ~~~
 
 <img src="/images/job_1.PNG" width="800">
 <img src="/images/job_2.PNG" width="800">
 
+# Predict
+
+To predict the model, we will run the predictor.py script. The script does three main things:
+
+1. Find the latent factors, the users' and items' weights on the latent factors, from the best performing model based on the results from Hypertune.
+2. Discover each user's preference on the items.
+3. Output the results in a .txt file in the local directory.
+
+The .py file takes three arguments: 
+- job_name: the name of the hypertune job
+- user-id: the user of interest
+- num_items: the number of items to be returned, preferred items first.
+
 ~~~
-python predictor.py --job_name reco_exp_20190725233820 --user_id 10000001 –num_items 10
+python predictor.py --job_name xxxxxxxx --user_id xxxxxx –num_items 10
 ~~~
