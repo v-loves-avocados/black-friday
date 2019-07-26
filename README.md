@@ -16,3 +16,7 @@ gcloud ml-engine jobs submit training $job \
 --hypertune
 ~~~
 
+
+~~~
+python predictor.py --job_name reco_exp_20190725233820 --user_id 10000001 –num_items 10
+~~~
