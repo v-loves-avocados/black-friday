@@ -22,7 +22,7 @@ Collaborative filtering is a popular method to build recommendation systems. It 
 
 
 ## Weighted Alternating Least Squares (WALS) Algorithm
-
+https://cloud.google.com/solutions/machine-learning/images/recommendation-system-tensorflow-row-and-column-factors.svg
 
 
 
