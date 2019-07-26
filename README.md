@@ -1,6 +1,7 @@
 # Recommendation for Shoppers Using Black Friday Data
 ## Purpose of the Model
 This model uses Kaggle's Black Friday dataset. The original dataset was located at https://www.kaggle.com/mehdidag/black-friday
+The modeling method follows Google Cloud's example https://cloud.google.com/solutions/machine-learning/recommendation-system-tensorflow-overview
 
 The purpose of this model is to recommend products for each user ID.
 
@@ -23,23 +24,22 @@ Collaborative filtering is a popular method to build recommendation systems. It 
 
 ## Use Weighted Alternating Least Squares (WALS) to Factorize The Metric
 
-Imagine the transformed input data is transformed into a U (users) * V (Items) matrix, with each cell listing the corresponding user's preference to the item. 
+Imagine the transformed input data is transformed into a u (# of users) * i (# of tems) matrix, with each cell listing the corresponding user's preference to the item. 
 
-The goal of the model is to find one such huge matrix that shows the true preference of the users for each product. THe goal is to minimize the difference between the new matrix that we find, and the input matrix.
+The goal of the model is to find one such huge matrix that shows the true preference of the users for each product. The measure of success is the difference between the new matrix that we find, and the input matrix.
 
 One "philosophy" in finding such as new matrix is to decompose the input matrix into two parts:
-
-<img src="/images/wals.svg" width="400">
-* This image is copied from https://cloud.google.com/solutions/machine-learning/recommendation-system-tensorflow-overview. 
 
 The users' preference towards some latent factors
 The items' strength on the latent factors
 
 The latent factors are calculated through a mathematical approach, although it can be given subjective meanings. For example, in our case, we can see that people who purchase a lot of dresses, boots and handbags are heavy on factor 1, we can name the factor 1 as 'fashion'. 
 
+<img src="/images/wals.svg" width="400">
+This image is copied from https://cloud.google.com/solutions/machine-learning/recommendation-system-tensorflow-overview. 
 
 
-
+The WALS method is an algorithm to realize the above process.
 
 
 ~~~
@@ -55,6 +55,8 @@ gcloud ml-engine jobs submit training $job \
 --hypertune
 ~~~
 
+<img src="/images/job_1.PNG" width="400">
+<img src="/images/job_2.PNG" width="400">
 
 ~~~
 python predictor.py --job_name reco_exp_20190725233820 --user_id 10000001 –num_items 10
