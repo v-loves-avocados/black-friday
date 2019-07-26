@@ -55,8 +55,8 @@ gcloud ml-engine jobs submit training $job \
 --hypertune
 ~~~
 
-<img src="/images/job_1.PNG" width="400">
-<img src="/images/job_2.PNG" width="400">
+<img src="/images/job_1.PNG" width="800">
+<img src="/images/job_2.PNG" width="800">
 
 ~~~
 python predictor.py --job_name reco_exp_20190725233820 --user_id 10000001 –num_items 10
