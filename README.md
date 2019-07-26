@@ -18,11 +18,25 @@ In the input data, each row is one transaction including the following columns:
 
 Collaborative filtering is a popular method to build recommendation systems. It predicts the feedback for new items based on large-scale existing user-item feedback. The gif from https://en.wikipedia.org/wiki/Collaborative_filtering explains the idea.
  
-![](images/Collaborative_filtering.gif)
+![]("images/Collaborative_filtering.gif" width=400)
 
 
-## Weighted Alternating Least Squares (WALS) Algorithm
-https://cloud.google.com/solutions/machine-learning/images/recommendation-system-tensorflow-row-and-column-factors.svg
+## Use Weighted Alternating Least Squares (WALS) to Factorize The Metric
+
+Imagine the transformed input data is transformed into a U (users) * V (Items) matrix, with each cell listing the corresponding user's preference to the item. 
+
+The goal of the model is to find one such huge matrix that shows the true preference of the users for each product. THe goal is to minimize the difference between the new matrix that we find, and the input matrix.
+
+One "philosophy" in finding such as new matrix is to decompose the input matrix into two parts:
+
+<img src="/images/wals.svg" width="400">
+* This image is copied from https://cloud.google.com/solutions/machine-learning/recommendation-system-tensorflow-overview. 
+
+The users' preference towards some latent factors
+The items' strength on the latent factors
+
+The latent factors are calculated through a mathematical approach, although it can be given subjective meanings. For example, in our case, we can see that people who purchase a lot of dresses, boots and handbags are heavy on factor 1, we can name the factor 1 as 'fashion'. 
+
 
 
 
