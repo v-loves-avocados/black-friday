@@ -26,7 +26,7 @@ Collaborative filtering is a popular method to build recommendation systems. It 
 
 Imagine the transformed input data is transformed into a u (# of users) * i (# of tems) matrix, with each cell listing the corresponding user's preference to the item. 
 
-The goal of the model is to find one such huge matrix that shows the true preference of the users for each product. The measure of success is the difference between the new matrix that we find, and the input matrix.
+The goal of the model is to find one such huge matrix that shows the true preference of the users for each product. **The measure of success is the difference between the new matrix that we find, and the input matrix. In this project, we used root mean squared error (rmse) as a metric. **
 
 One "philosophy" in finding such as new matrix is to decompose the input matrix into two parts:
 
@@ -41,6 +41,12 @@ This image is copied from https://cloud.google.com/solutions/machine-learning/re
 
 The WALS method is an algorithm to realize the above process.
 
+## Hypertuning
+We used Hypertune to tune the following metrics. The goal is to minimize the **Root Mean Squared Error (RMSE)**. The parameters are set in the config.yaml file.
+  - regularization: L2 regularization constant, to avoid overfitting
+  - latent_factors: number of latent factors 
+  - unobs_weight: unobserved item weights
+  - feature_wt_exp: feature weight exponent constant
 
 ~~~
 job=reco_exp_"`date+%Y%m%d%H%M%S`"
