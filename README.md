@@ -62,6 +62,12 @@ gcloud ml-engine jobs submit training $job \
 <img src="/images/job_1.PNG" width="800">
 <img src="/images/job_2.PNG" width="800">
 
+After hypertuning, the best performing model came from trial 96, with rmse=2570.058. Since the predicted value is in the unit of cents, this means that the average error for each user is about $25. 
+
+
+<img src="/images/winning.PNG" width="800">
+
+
 # Predict
 
 To predict the model, we will run the predictor.py script. The script does three main things:
@@ -78,3 +84,7 @@ The .py file takes three arguments:
 ~~~
 python predictor.py --job_name xxxxxxxx --user_id xxxxxx –num_items 10
 ~~~
+
+This outputs a .txt file with the top 10 items that we think the user is most likely to buy.
+
+
