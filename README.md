@@ -1,11 +1,11 @@
 # Recommendation for Shoppers Using Black Friday Data
-## Purpose of the Model
+# Purpose of the Model
 This model uses Kaggle's Black Friday dataset. The original dataset was located at https://www.kaggle.com/mehdidag/black-friday
 The modeling method follows Google Cloud's example https://cloud.google.com/solutions/machine-learning/recommendation-system-tensorflow-overview
 
 The purpose of this model is to recommend products for each user ID.
 
-## Data Exploration and Data Analysis
+# Data Exploration and Data Analysis
 The data analysis and data visualization is done in the Jupyter Notebook bf_exploratory_analysis.ipynb. https://github.com/v-loves-avocados/black-friday/blob/master/bf_exploratory_analysis.ipynb
 
 # Modeling
