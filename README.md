@@ -19,7 +19,7 @@ In the input data, each row is one transaction including the following columns:
 
 Collaborative filtering is a popular method to build recommendation systems. It is based on the idea that customers who have similar preferences or tastes in items will respond to them the same way. The gif from https://en.wikipedia.org/wiki/Collaborative_filtering explains the idea.
  
-![]("images/Collaborative_filtering.gif" width=400)
+![]("/images/Collaborative_filtering.gif" width="400")
 
 
 ## Use Weighted Alternating Least Squares (WALS) to Factorize The Metric
