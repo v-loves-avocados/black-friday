@@ -17,7 +17,7 @@ In the input data, each row is one transaction including the following columns:
   
 ## Collaborative Filtering
 
-Collaborative filtering is a popular method to build recommendation systems. It predicts the feedback for new items based on large-scale existing user-item feedback. The gif from https://en.wikipedia.org/wiki/Collaborative_filtering explains the idea.
+Collaborative filtering is a popular method to build recommendation systems. It is based on the idea that customers who have similar preferences or tastes in items will respond to them the same way. The gif from https://en.wikipedia.org/wiki/Collaborative_filtering explains the idea.
  
 ![]("images/Collaborative_filtering.gif" width=400)
 
@@ -37,7 +37,6 @@ The latent factors are calculated through a mathematical approach, although it c
 
 <img src="/images/wals.svg" width="400">
 This image is copied from https://cloud.google.com/solutions/machine-learning/recommendation-system-tensorflow-overview. 
-
 
 The WALS method is an algorithm to realize the above process.
 
