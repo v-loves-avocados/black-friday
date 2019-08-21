@@ -33,7 +33,14 @@ The terminal will echo the steps it took.
 <img src="/images/terminal.PNG" width="800">
 
 The table with timestamp is created in the Big Query.
-<img src="/images/bigquery.PNG" width="800">
+
+<img src="/images/bigquery.PNG" width="400">
+
+The .csv file in Google Cloud Storage:
+
+<img src="/images/gcs.PNG" width="400">
+
+
 
 # Modeling
 ## Input
