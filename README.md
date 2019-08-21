@@ -8,6 +8,33 @@ The purpose of this model is to recommend products for each user ID.
 # Data Exploration and Data Analysis
 The data analysis and data visualization is done in the Jupyter Notebook bf_exploratory_analysis.ipynb. https://github.com/v-loves-avocados/black-friday/blob/master/bf_exploratory_analysis.ipynb
 
+# Data Preperation
+The data_prep.py file handles the data preperation process. 
+
+It does the following three things:
+  - Select the columns relevant for the modeling. The default is to include all the data, but this can be customized when executing the file. 
+  - Save it in a table in the same BigQuery dataset. The default table name is bfdata_tmp_[timestamp]. The table name can be customized when executing the file. The reason for storing a copy in BigQuery is for SQL users to explore and QA.
+  - Move the data from BigQuery to a designated folder in Cloud Storage. There's a default folder, but it could be customized. 
+  
+~~~
+# execute data_prep.py using the default values
+
+python data_prep.py
+~~~
+
+~~~
+# execute data_prep.py using customized Cloud Storage location
+
+python data_prep.py --gcs_destination='gs://reco_exp_1/data3/product_df.csv'
+~~~
+
+The terminal will echo the steps it took.
+
+<img src="/images/terminal.PNG" width="800">
+
+The table with timestamp is created in the Big Query.
+<img src="/images/bigquery.PNG" width="800">
+
 # Modeling
 ## Input
 In the input data, each row is one transaction including the following columns:
