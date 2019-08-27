@@ -132,8 +132,15 @@ python predictor.py --job_name xxxxxxxx --user_id xxxxxx –num_items 10
 
 This outputs a .txt file with the top 10 items that we think the user is most likely to buy.
 
+
+# Security Concerns
+
+Our data includes the client id, the products id and purchas eprice. To protect user info, the client id and product id are anoynymized. 
+Also, we kept the data within the GCP platform during the whole process. 
+
 References:
 
 1. Google Cloud: https://cloud.google.com/solutions/machine-learning/recommendation-system-tensorflow-overview
 2. Kaggle: https://www.kaggle.com/mehdidag/black-friday
 3. Wikipedia: https://en.wikipedia.org/wiki/Collaborative_filtering
+4. The Security of Google Cloud: https://cloud.google.com/security/
