@@ -79,6 +79,13 @@ Then the model try to fit the training data through an iteration process to find
 
 The WALS method is an algorithm to realize the above process.
 
+## Why WALS?
+1. WALS is widely used for implicit ratings. In our case, the $$ spent is an implicit rating.
+2. No domain knowledge is needed.
+3. It can help discover new insights.
+4. Its algorithmic optimization is available.
+5. The Tensorflow WALS code base is available, making it quite easy to use.
+
 ## Hypertuning
 We used Hypertune to tune the following metrics. The goal is to minimize the **Root Mean Squared Error (RMSE)**. The parameters are set in the config.yaml file.
   - regularization: L2 regularization constant, to avoid overfitting
