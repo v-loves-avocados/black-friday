@@ -136,7 +136,7 @@ This outputs a .txt file with the top 10 items that we think the user is most li
 # Security Concerns
 
 Our data includes the client id, the products id and purchas eprice. To protect user info, the client id and product id are anoynymized. 
-Also, we kept the data within the GCP platform during the whole process. 
+Also, we kept the data within the GCP's secured infrastructure during the whole process. 
 
 References:
 
