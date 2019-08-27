@@ -84,7 +84,7 @@ The WALS method is an algorithm to realize the above process.
 2. No domain knowledge is needed.
 3. It can help discover new insights.
 4. Its algorithmic optimization is available.
-5. The Tensorflow WALS code base is available, making it quite easy to use.
+5. The Tensorflow WALS code base is available, making it quite easy to handle large amount of data.
 
 ## Hypertuning
 We used Hypertune to tune the following metrics. The goal is to minimize the **Root Mean Squared Error (RMSE)**. The parameters are set in the config.yaml file.
