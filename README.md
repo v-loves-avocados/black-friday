@@ -134,13 +134,11 @@ This outputs a .txt file with the top 10 items that we think the user is most li
 
 
 # Security Concerns
+We are extra careful when working with clients' data, especially when PII data is involved. In our project, client id and the products id are anoynymized. Besides, we have the following considerations:
 
 ## Secure Infrastructure
 We will keep our data, data pipeline and analytics work in the Google Cloud Platform, the most trustworthy and trusted cloud platform.
 (https://cloud.google.com/security/infrastructure/)
-
-# Security Concerns
-We are extra careful when working with clients' data, especially when PII data is involved. In our project, client id and the products id are anoynymized. Besides, we have the following considerations:
 
 ## Prevent Data Loss
 We will work with our client to utilize Google's Cloud Data Loss Prevention service (https://cloud.google.com/dlp/)
