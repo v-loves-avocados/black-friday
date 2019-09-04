@@ -135,8 +135,24 @@ This outputs a .txt file with the top 10 items that we think the user is most li
 
 # Security Concerns
 
-Our data includes the client id, the products id and purchas eprice. To protect user info, the client id and product id are anoynymized. 
-Also, we kept the data within the GCP's secured infrastructure during the whole process. 
+## Secure Infrastructure
+We will keep our data, data pipeline and analytics work in the Google Cloud Platform, the most trustworthy and trusted cloud platform.
+(https://cloud.google.com/security/infrastructure/)
+
+# Security Concerns
+We are extra careful when working with clients' data, especially when PII data is involved. In our project, client id and the products id are anoynymized. Besides, we have the following considerations:
+
+## Prevent Data Loss
+We will work with our client to utilize Google's Cloud Data Loss Prevention service (https://cloud.google.com/dlp/)
+
+## Acces Management
+We will use Google Cloud's Cloud Identity and Access Management to control users' access to data, and limit the data access only to the personel who need it.  https://cloud.google.com/iam/
+
+## Responsible AI
+We will be fully compliant with our company's Respnosible AI requirements, and only use data in the ethical ways. 
+
+
+
 
 References:
 
