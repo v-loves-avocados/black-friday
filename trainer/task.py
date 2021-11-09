@@ -13,7 +13,7 @@ def parse_arguments():
     # required input arguments
     parser.add_argument(
         '--train-file',
-        default='gs://reco_exp_1/data/product_df.csv',
+        default='gs://gcp_mlspecialization_2021/black_friday/data/train.csv',
         help='path to training data'
     )
     parser.add_argument(
@@ -23,7 +23,7 @@ def parse_arguments():
     )
     parser.add_argument(
         '--job_name',
-        default='rec_exp',
+        default='black_friday_train',
         help='job_name'
     )
     # hyper params for model

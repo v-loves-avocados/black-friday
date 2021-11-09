@@ -20,7 +20,7 @@ def get_rmse(output_row, output_col, actual):
     """
     
     mse = 0
-    for i in xrange(actual.data.shape[0]):
+    for i in range(actual.data.shape[0]):
         row_pred = output_row[actual.row[i]]
         col_pred = output_col[actual.col[i]]
         err = actual.data[i] - np.dot(row_pred, col_pred)
@@ -48,7 +48,7 @@ def simple_train(model, input_tensor, num_iterations):
         col_update_op = model.update_col_factors(sp_input=input_tensor)[1]
         sess.run(model.initialize_op)
         sess.run(model.worker_init)
-        for _ in xrange(num_iterations):
+        for _ in range(num_iterations):
             sess.run(model.row_update_prep_gramian_op)
             sess.run(model.initialize_row_update_op)
             sess.run(row_update_op)
@@ -126,9 +126,14 @@ def wals_model(data, dim, reg, unobs, weights=False,
     col_factor = None
     
     with tf.Graph().as_default():
-        input_tensor = tf.SparseTensor(indices=zip(data.row, data.col),
-                                       values=(data.data).astype(np.float32),
-                                       dense_shape=data.shape)
+        input_tensor = tf.SparseTensor(
+            #indices=zip(data.row, data.col),
+            indices=list(zip(
+                data.row.astype(np.int64).tolist(), 
+                data.col.astype(np.int64).tolist()
+                )),
+            values=(data.data).astype(np.float32),
+            dense_shape=data.shape)
         
         model = factorization_ops.WALSModel(num_rows, num_cols, dim,
                                             unobserved_weight=unobs,

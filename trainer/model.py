@@ -26,11 +26,11 @@ def create_test_and_train_sets(input_file):
     """
     
     input_df = pd.read_csv(input_file, sep=',', header=0)
-    df_items = pd.DataFrame({'productId': input_df.productId.unique()})
-    df_sorted_items = df_items.sort_values('productId').reset_index()
-    pds_items = df_sorted_items.productId
+    df_items = pd.DataFrame({'Product_ID': input_df.Product_ID.unique()})
+    df_sorted_items = df_items.sort_values('Product_ID').reset_index()
+    pds_items = df_sorted_items.Product_ID
     
-    df_user_items = input_df.groupby(['userId', 'productId']).agg({'Expense': 'sum'})
+    df_user_items = input_df.groupby(['User_ID', 'Product_ID']).agg({'Purchase': 'sum'})
     
     # create a list of (userId, productId, Expense) ratings, where userId and productId are 0-indexed
     current_u = -1
@@ -45,7 +45,7 @@ def create_test_and_train_sets(input_file):
             user_ux.append(user)
             ux += 1
             current_u = user
-        ix = pds_items.searchsorted(item)[0]
+        ix = pds_items.searchsorted(item)
         pv_ratings.append((ux, ix, timeonpg[1]))
 
     # convert ratings list and user map to np array
@@ -55,7 +55,7 @@ def create_test_and_train_sets(input_file):
     # create train and test coos matrixes
     tr_sparse, test_sparse = _create_sparse_train_and_test(pv_ratings, ux + 1, df_items.size)
     
-    return user_ux, pds_items.as_matrix(), tr_sparse, test_sparse
+    return user_ux, pds_items.to_numpy(), tr_sparse, test_sparse
 
 
 def _create_sparse_train_and_test(ratings, n_users, n_items):
@@ -70,8 +70,8 @@ def _create_sparse_train_and_test(ratings, n_users, n_items):
     """
     
     # pick a random set of data as testing data, sorted ascending
-    test_set_size = len(ratings) / TEST_SET_RATIO
-    test_set_idx = np.random.choice(xrange(len(ratings)), size=test_set_size, replace=False)
+    test_set_size = int(len(ratings) / TEST_SET_RATIO)
+    test_set_idx = np.random.choice(range(len(ratings)), size=test_set_size, replace=False)
     test_set_idx = sorted(test_set_idx)
     
     # use the remaining data to create a training set
@@ -97,7 +97,7 @@ def train_model(args, tr_sparse):
     the row and column factors in numpy format.
     """
     tf.logging.info('Train Start: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
-    
+
     # generate model
     input_tensor, row_factor, col_factor, model = wals.wals_model(tr_sparse,
                                                                   args.latent_factors,
